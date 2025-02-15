@@ -1,0 +1,32 @@
+<h1>List of all directors</h1>
+<hr>
+
+<table border="1">
+  <tr>
+    <th>
+      ID
+    </th>
+    <th>
+      Image
+    </th>
+    <th>
+      Name
+    </th>
+    <th>
+      Dob
+    </th>
+    <th>
+    </th>
+  </tr>
+    <% @list_of_directors.order({:dob => :desc}).each do |director| %>
+      <tr>
+      <td><%= director.id%></td>
+      <td><img src="<%= director.image%>" style="width:250px;"></td>
+      <td><%= director.name%></td>
+      <td><%= director.dob%></td>
+      <td><a href="/directors/<%= director.id %>">
+      Show details</a></td>
+      </tr>
+    <% end %>
+  
+</table>

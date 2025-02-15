@@ -21,4 +21,22 @@ class MiscController < ApplicationController
     @appearances_list = Character.where({ :actor_id => @id })
     render({ :template => "misc_templates/actor"})
   end
+  def all_directors
+    @list_of_directors = Director.all
+    render({ :template => "misc_templates/directors"})
+  end
+  def each_director
+    @id = params.fetch("id").to_i
+    @director = Director.where({ :id => @id }).first
+    @filmography_list = Movie.where({ :director_id => @id })
+    render({ :template => "misc_templates/director"})
+  end
+  def youngest
+    @youngest = (Director.where.not({ :dob => nil }).order( :dob => :asc)).last
+    render({ :template => "misc_templates/youngest"})
+  end
+  def eldest
+    @eldest = (Director.where.not({ :dob => nil }).order( :dob => :asc)).first
+    render({ :template => "misc_templates/eldest"})
+  end
 end

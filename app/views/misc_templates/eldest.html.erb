@@ -1,0 +1,5 @@
+<h1>Eldest director</h1>
+
+<p>The eldest director in our dataset right now is <a href="/directors/<%= @eldest.id%>"><%= @eldest.name %></a>, born on <%= (@eldest.dob).strftime("%B %d, %Y") %>.</p>
+
+<p>(<a href="http://strftime.net/" target="_blank">http://strftime.net/</a> is handy for putting together the formatting strings for the <code>.strftime</code> method.)</p>
